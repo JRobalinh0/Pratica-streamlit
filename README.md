@@ -9,7 +9,7 @@ Repositório-modelo das Aulas 21, 22 e 23: construção de dois dashboards em St
 
 ## App publicado
 
-**Link do app:** _(adicionar aqui o link do Streamlit Community Cloud após o deploy)_
+**Link do app:** https://pratica-app-adgdxlhoyd9uzvxv8rib6j.streamlit.app/
 
 ## Projeto: MCU Box Office
 
