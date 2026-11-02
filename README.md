@@ -7,6 +7,21 @@ Repositório-modelo das Aulas 21, 22 e 23: construção de dois dashboards em St
 - Dashboard 1 = correlação + distribuição das variáveis quantitativas
 - Dashboard 2 = KPIs
 
+## App publicado
+
+**Link do app:** _(adicionar aqui o link do Streamlit Community Cloud após o deploy)_
+
+## Projeto: MCU Box Office
+
+Dashboards construídos a partir da EDA do dataset [Marvel Cinematic Universe Box Office](https://www.kaggle.com/datasets/parthfr/marvel-cinematic-universe-boxoffice-csv) (Kaggle). Na EDA ([notebooks/eda.ipynb](notebooks/eda.ipynb)) as 24 séries de TV foram removidas (não têm bilheteria), os outliers foram mantidos (blockbusters legítimos) e o dataset tratado, com 38 filmes, foi exportado para `data/clean/dataset.csv`. O dataset é público e não contém dados sensíveis.
+
+| Aba | Público | Conteúdo |
+| --- | --- | --- |
+| Laboratório de distribuição e correlação | Analistas | Heatmap de correlação (Spearman, Pearson ou Kendall), um histograma por variável selecionada e dispersão de um par de variáveis |
+| KPIs do estúdio | Diretoria de estratégia e finanças do estúdio | 5 métricas próprias (multiplicador de bilheteria, taxa de sucesso ≥ 2,5×, receita internacional, peso da estreia, gap público × crítica) e 3 visuais (multiplicador por fase, orçamento × bilheteria, ranking de filmes) |
+
+A barra lateral tem o seletor de variáveis, o filtro de fases e um slider de intervalo por variável selecionada, que exclui da avaliação os filmes fora da faixa. Os rascunhos de layout dos dois dashboards estão em [entregas/](entregas/).
+
 ## Setup
 
 Requer **Python 3.11 a 3.15**. Confira a sua versão antes de começar:
