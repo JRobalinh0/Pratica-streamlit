@@ -18,3 +18,6 @@ backgroundColor = "#0e1117"
 secondaryBackgroundColor = "#262730"
 textColor = "#fafafa"
 borderColor = "#41444e"
+
+[client]
+showErrorDetails = "none"   # no app publicado, não exibe traceback (código e caminhos) para visitantes
