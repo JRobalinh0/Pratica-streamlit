@@ -55,7 +55,6 @@ df = load_data().copy()
 df[VARS_FINANCEIRAS] = df[VARS_FINANCEIRAS] / 1e6
 df["multiplicador"] = df["worldwide_box_office"] / df["production_budget"]
 df["internacional"] = df["worldwide_box_office"] - df["domestic_box_office"]
-df["peso_estreia"] = df["opening_weekend"] / df["domestic_box_office"]
 df["gap_publico_critica"] = df["audience_score"] - df["tomato_meter"]
 
 FASES = sorted(df["mcu_phase"].unique())
@@ -123,7 +122,7 @@ if len(df_filtrado) < 3:
     st.stop()
 
 aba_laboratorio, aba_kpis = st.tabs(
-    [":material/science: Laboratório de distribuição e correlação", ":material/monitoring: KPIs do estúdio"]
+    [":material/science: Laboratório de distribuição e correlação", ":material/monitoring: KPIs da franquia"]
 )
 
 # [IA] Claude Code – Dashboard 1: heatmap de correlação, histogramas por variável e dispersão de um par
@@ -242,12 +241,12 @@ with aba_laboratorio:
                 st.caption(f"Correlação de {metodo.capitalize()} entre o par: r = {fmt_num(r, 2)}")
 
 # [IA] Claude Code – Dashboard 2: cálculo e exibição das métricas, gráfico por fase, dispersão e ranking
-# Dashboard 2: KPIs para a diretoria de estratégia e finanças do estúdio
+# Dashboard 2: KPIs para fãs e imprensa que acompanham a franquia
 with aba_kpis:
-    st.subheader("Saúde financeira da franquia")
+    st.subheader("Como vão os filmes da Marvel?")
     st.caption(
-        "Para a diretoria de estratégia e finanças do estúdio: retorno, risco e dependência de mercado "
-        "dos filmes selecionados. As variações comparam com a franquia completa (38 filmes)."
+        "Para fãs e imprensa: quanto os filmes faturam, quantos deram certo, de onde vem o público "
+        "e se público e crítica concordam. As variações comparam com a franquia completa (38 filmes)."
     )
 
     def kpis(dados):
@@ -255,7 +254,6 @@ with aba_kpis:
             "multiplicador": dados["multiplicador"].mean(),
             "sucesso": (dados["multiplicador"] >= BREAK_EVEN).mean() * 100,
             "internacional": dados["internacional"].sum() / dados["worldwide_box_office"].sum() * 100,
-            "estreia": dados["peso_estreia"].median() * 100,
             "gap": dados["gap_publico_critica"].mean(),
         }
 
@@ -292,18 +290,6 @@ with aba_kpis:
             delta_description="vs. franquia",
             delta_color="off",
             help="Parcela da bilheteria mundial vinda de fora dos EUA. Mede a dependência do mercado internacional.",
-            border=True,
-        )
-        st.metric(
-            "Peso da estreia",
-            f"{fmt_num(atual['estreia'], 0)}%",
-            delta("estreia", " p.p.", 0),
-            delta_description="vs. franquia",
-            delta_color="inverse",
-            help=(
-                "Mediana de fim de semana de estreia ÷ bilheteria nos EUA. Quanto maior, mais o filme depende "
-                "da primeira semana e menos do boca a boca (sinal de risco)."
-            ),
             border=True,
         )
         st.metric(

@@ -18,7 +18,7 @@ Dashboards construídos a partir da EDA do dataset [Marvel Cinematic Universe Bo
 | Aba | Público | Conteúdo |
 | --- | --- | --- |
 | Laboratório de distribuição e correlação | Analistas | Heatmap de correlação (Spearman, Pearson ou Kendall), um histograma por variável selecionada e dispersão de um par de variáveis |
-| KPIs do estúdio | Diretoria de estratégia e finanças do estúdio | 5 métricas próprias (multiplicador de bilheteria, taxa de sucesso ≥ 2,5×, receita internacional, peso da estreia, gap público × crítica) e 3 visuais (multiplicador por fase, orçamento × bilheteria, ranking de filmes) |
+| KPIs da franquia | Fãs e imprensa que acompanham a franquia | 4 métricas próprias (multiplicador de bilheteria, taxa de sucesso ≥ 2,5×, receita internacional, gap público × crítica) e 3 visuais (multiplicador por fase, orçamento × bilheteria, ranking de filmes) |
 
 A barra lateral tem o seletor de variáveis, o filtro de fases e um slider de intervalo por variável selecionada, que exclui da avaliação os filmes fora da faixa. Os rascunhos de layout dos dois dashboards estão em [entregas/](entregas/).
 
