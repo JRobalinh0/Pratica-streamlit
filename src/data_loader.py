@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 
 
+# [IA] Claude Code – cache do carregamento e leitura de release_date como data
 @st.cache_data
 def load_data(path="data/clean/dataset.csv"):
     """Lê o dataset já tratado (exportado ao final do notebook de EDA)."""

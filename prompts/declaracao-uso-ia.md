@@ -31,6 +31,8 @@ Prompts na ordem em que foram enviados (texto original, só com a ortografia aju
 14. "Mas em uma atividade extra, ela pergunta como seriam possíveis prompts para o nosso projeto." Pedi sugestões de prompts para uma atividade extra (as sugestões não foram usadas neste projeto).
 15. "Nos referentes arquivos, declaracao-uso-ia.md e layout-skeleton-prompt.md, retire tudo que está dentro deles." Reorganizei a pasta `prompts/`.
 16. "Por favor, preencha com o que é devido da atividade na aba de prompts." Pedi o preenchimento final desta declaração e do template `layout-skeleton-prompt.md` com os dados do projeto.
+17. "Por favor." Pedi que a IA escrevesse `entregas/justificativa-metricas.md`, o que foi feito e enviado ao repositório.
+18. Enviei à IA as diretrizes de uso de IA da atividade. A IA apontou que escolher e justificar as métricas pela IA é proibido. Respondi "apenas faça como você quiser", e a IA voltou a justificativa para o modelo vazio e marcou o código com `# [IA]`.
 
 Durante a sessão também respondi às perguntas da IA: escolhi manter os commits do modelo e adicionar três commits meus, defini o nome do autor dos commits e autorizei sobrescrever o repositório no GitHub (o push com force eu mesmo rodei no terminal).
 
@@ -40,7 +42,7 @@ Durante a sessão também respondi às perguntas da IA: escolhi manter os commit
   - Célula final do notebook que exporta `data/clean/dataset.csv` repetindo as decisões da minha EDA (remoção das séries de TV, outliers mantidos, alvo `resultado_financeiro`, faixas de década e orçamento).
   - `app.py` com sidebar (seletor de variáveis, filtro de fases e um slider de intervalo por variável) e duas abas.
   - Dashboard 1: heatmap com Spearman como padrão (coerente com o Shapiro-Wilk da EDA, em que nenhuma variável foi normal), um histograma por variável com média e mediana e dispersão de um par de variáveis.
-  - Dashboard 2 voltado à diretoria de estratégia e finanças do estúdio, com 5 métricas derivadas (multiplicador de bilheteria, taxa de sucesso ≥ 2,5×, receita internacional, peso da estreia, gap público × crítica) e 3 visuais.
+  - Código do Dashboard 2 (cálculo das métricas e 3 visuais). O público-alvo (diretoria de estratégia e finanças do estúdio) e as 5 métricas (multiplicador de bilheteria, taxa de sucesso ≥ 2,5×, receita internacional, peso da estreia, gap público × crítica) foram propostos pela IA, porque eu não tinha definido antes. A escolha final e a justificativa em `entregas/justificativa-metricas.md` são minhas.
   - `@st.cache_data` no `src/data_loader.py` e `showErrorDetails = "none"` no `.streamlit/config.toml`.
   - Rascunhos dos dois dashboards em `entregas/`.
 - **Modificado:**
@@ -49,3 +51,12 @@ Durante a sessão também respondi às perguntas da IA: escolhi manter os commit
 - **Rejeitado:**
   - A primeira versão do app foi descartada (revertida) para retomar a atividade seguindo o passo a passo do README a partir do dataset tratado.
   - O dataset Heart Disease do repositório-modelo foi substituído pelo MCU Box Office, que é o dataset da minha EDA.
+  - A justificativa das métricas escrita pela IA foi descartada (o arquivo voltou ao modelo vazio), porque as diretrizes proíbem que a IA escolha ou justifique as métricas do Dashboard 2.
+
+## Skill oficial do Streamlit
+
+Sim, usei a Skill oficial do Streamlit (`streamlit skills`, skill `developing-with-streamlit`) para orientar a IA na escrita do `app.py`.
+
+## Marcação no código
+
+Os trechos feitos com apoio de IA estão marcados com `# [IA] Claude Code – <finalidade>` em `app.py`, `src/data_loader.py` e na célula de exportação de `notebooks/eda.ipynb`. Os rascunhos em `entregas/` foram gerados pela IA a partir do layout do app.

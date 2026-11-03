@@ -12,6 +12,7 @@ st.set_page_config(
     layout="wide",
 )
 
+# [IA] Claude Code – constantes do app: lista de variáveis, rótulos em português, cores e limite de 2,5x
 # Variáveis quantitativas do estudo (mesma lista VARS_QUANT do notebook de EDA)
 VARS_QUANT = [
     "tomato_meter",
@@ -48,6 +49,7 @@ def fmt_num(valor, casas=1):
     return f"{valor:,.{casas}f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+# [IA] Claude Code – conversão para US$ milhões e colunas derivadas usadas nas métricas do Dashboard 2
 df = load_data().copy()
 # Valores financeiros em milhões de dólares para facilitar leitura de eixos e sliders
 df[VARS_FINANCEIRAS] = df[VARS_FINANCEIRAS] / 1e6
@@ -64,6 +66,7 @@ st.caption(
     "Fonte: Kaggle, *marvel-cinematic-universe-boxoffice-csv*."
 )
 
+# [IA] Claude Code – sidebar (seletor de variáveis, filtro de fases, sliders) e filtragem dos filmes
 # Sidebar: filtros (variáveis + intervalo)
 with st.sidebar:
     st.header("Filtros")
@@ -123,6 +126,7 @@ aba_laboratorio, aba_kpis = st.tabs(
     [":material/science: Laboratório de distribuição e correlação", ":material/monitoring: KPIs do estúdio"]
 )
 
+# [IA] Claude Code – Dashboard 1: heatmap de correlação, histogramas por variável e dispersão de um par
 # Dashboard 1: correlação (heatmap) à esquerda, distribuição (histogramas) à direita
 with aba_laboratorio:
     col_correlacao, col_distribuicao = st.columns([1, 1.5], gap="large")
@@ -237,6 +241,7 @@ with aba_laboratorio:
                 r = df_filtrado[var_x].corr(df_filtrado[var_y], method=metodo)
                 st.caption(f"Correlação de {metodo.capitalize()} entre o par: r = {fmt_num(r, 2)}")
 
+# [IA] Claude Code – Dashboard 2: cálculo e exibição das métricas, gráfico por fase, dispersão e ranking
 # Dashboard 2: KPIs para a diretoria de estratégia e finanças do estúdio
 with aba_kpis:
     st.subheader("Saúde financeira da franquia")
